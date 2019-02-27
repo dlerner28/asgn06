@@ -1,23 +1,34 @@
 <?php
 
-
+//local login
 //variables
+//$server = "localhost";
+//$user = "wbip";
+//$pw = "wbip123";
+//$db = "test";
+
+//production login
+//if($_SERVER['HTTP_HOST'] == "daanlerner.com")
+//{
+//$server = "localhost";
+//$user = "daniell9_tester";
+//$pw = "$kuLLface1";
+//$db = "daniell9_thetest";
+//}
+
+else 
+{
 $server = "localhost";
 $user = "wbip";
 $pw = "wbip123";
 $db = "test";
-
-//local db 
-
-$server = "localhost";
-$user = "daniell9_newtest";
-$pw = "Abtech";
-$db = "daniell9_newtest";
+}
 
 //define('SERVER', 'localhost');
 //define('USER', 'wbip');
 //define('PW', 'wbip123');
 //define('DB', 'test');
+
 
 //----connect to the databse
 

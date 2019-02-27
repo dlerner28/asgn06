@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!--	Author: 
-		Date:	
+<!--	Author: Daniel Lerner
+		Date:	2/20/19
 		File:	name-change.php
 		Purpose:MySQL Exercise
 -->
@@ -14,21 +14,10 @@
 <body>
 <?php
 
-$server = "localhost";
-$user = "wbip";
-$pw = "wbip123";
-$db = "test";
-
-$connect=mysqli_connect($server, $user, $pw, $db);
-
-if( !$connect) 
-{
-	die("ERROR: Cannot connect to database $db on server $server 
-	using user name $user (".mysqli_connect_errno().
-	", ".mysqli_connect_error().")");
+include('db-connect2.php');
 }
 
-$userQuery = ""; // ADD QUERY
+$userQuery = "UPDATE personnel SET lastName='Jackson', jobTitle='Manager' WHERE empID=12353"; // ADD QUERY
 
 $result = mysqli_query($connect, $userQuery);
 

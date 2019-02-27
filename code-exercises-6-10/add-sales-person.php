@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!--	Author: 
-		Date:	
+<!--	Author: Daniel Lerner
+		Date:	2/20/19
 		File:	add-sale-person.php
 		Purpose:MySQL Exercise
 -->
@@ -15,24 +15,14 @@
 
 <?php
 
-$server = "localhost";
-$user = "wbip";
-$pw = "wbip123";
-$db = "test";
-
-$connect=mysqli_connect($server, $user, $pw, $db);
-
-if( !$connect) 
-{
-	die("ERROR: Cannot connect to database $db on server $server 
-	using user name $user (".mysqli_connect_errno().
-	", ".mysqli_connect_error().")");
-}
+include('db-connect2');
+  
 $empID = $_POST['empID'];
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 
-$userQuery = ""; // ADD THE QUERY
+$userQuery = "INSERT INTO personnel (empID, firstName, lastName, jobTitle, hourlyWage) VALUES ('$empID', '$firstName', '$lastName', 'Sales', '8.25')"; 
+ // ADD THE QUERY
 
 $result = mysqli_query($connect, $userQuery);
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<!--	Author: 
-		Date:	
+<!--	Author: Daniel Lerner
+		Date:	2/20/19
 		File:	wage-report.php
 		Purpose:MySQL Exercise
 -->
@@ -13,24 +13,13 @@
 <body>
 <?php
 
-$server = "localhost";
-$user = "wbip";
-$pw = "wbip123";
-$db = "test";
-
-$connect=mysqli_connect($server, $user, $pw, $db);
-
-if( !$connect) 
-{
-	die("ERROR: Cannot connect to database $db on server $server 
-	using user name $user (".mysqli_connect_errno().
-	", ".mysqli_connect_error().")");
-}
+include('db-connect2.php');
 
 $hourlyWage = $_POST['hourlyWage'];
 $jobTitle = $_POST['jobTitle'];
 
-$userQuery = " "; // ADD THE QUERY
+$userQuery = "SELECT empID FROM personnel 
+ WHERE jobTitle='$jobTitle' AND hourlyWage>='$hourlyWage'"; // ADD THE QUERY
 
 $result = mysqli_query($connect, $userQuery);
 
@@ -54,7 +43,11 @@ else
 	print("<tr><th>EMP ID</th></tr>");
 
 	// ADD CODE HERE
-
+    while ($row = mysqli_fetch_assoc($result))
+    {
+    print("<tr><td>".$row['empID']."</td></tr>");
+    }
+    
 	print ("</table>");
 }
 
